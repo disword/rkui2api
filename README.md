@@ -40,6 +40,7 @@ python main.py
 
 #### api路由
 GET /v1/models 列出所有模型（兼容OPENAI规范）
+
 POST /v1/chat/completions/ 聊天接口（兼容OPENAI规范）
 
 
