@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Shanghai
+      - API_TOKEN=${API_TOKEN:sk-114514}
+    volumes:
+      - ./:/app
