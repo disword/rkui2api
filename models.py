@@ -21,6 +21,24 @@ AVAILABLE_MODELS = [
         "root": "deepseekr1turbo",
         "parent": None
     },
+     {
+        "id": "deepseek-r1-turbo2",
+        "object": "model",
+        "created": 1677650000,
+        "owned_by": "deepseek",
+        "permission": [],
+        "root": "deepseekr1turbo2",
+        "parent": None
+    },
+    {
+        "id": "deepseek-r1-turbo3",
+        "object": "model",
+        "created": 1677650000,
+        "owned_by": "deepseek",
+        "permission": [],
+        "root": "deepseekr1turbo3",
+        "parent": None
+    },
     {
         "id": "deepseek-v3-turbo",
         "object": "model",
@@ -37,6 +55,24 @@ AVAILABLE_MODELS = [
         "owned_by": "deepseek",
         "permission": [],
         "root": "deepseekv30324",
+        "parent": None
+    },
+    {
+        "id": "deepseek-v3-03242",
+        "object": "model",
+        "created": 1677650200,
+        "owned_by": "deepseek",
+        "permission": [],
+        "root": "deepseekv303242",
+        "parent": None
+    },
+    {
+        "id": "deepseek-v3-03243",
+        "object": "model",
+        "created": 1677650200,
+        "owned_by": "deepseek",
+        "permission": [],
+        "root": "deepseekv303243",
         "parent": None
     },
     {
