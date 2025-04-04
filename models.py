@@ -145,7 +145,11 @@ MODEL_MAPPING = {
     "grok-3-deepsearch": "grok3deepsearch",
     "grok-3-reasoning": "grok3reasoning",
     "qwen-32b": "qwen32b",
-    "qwq-32b": "qwen32b"
+    "qwq-32b": "qwen32b",
+    "deepseek-r1-turbo2": "deepseekr1turbo2",
+    "deepseek-r1-turbo3": "deepseekr1turbo3",
+    "deepseek-v3-03242": "deepseekv303242",
+    "deepseek-v3-03243": "deepseekv303243"
 }
 
 # 默认模型
