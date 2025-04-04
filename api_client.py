@@ -17,8 +17,14 @@ def generate_random_user_agent():
         随机生成的User-Agent字符串
     """
     # 使用random-user-agent库生成随机User-Agent
-    user_agent_rotator = UserAgent()
-    return user_agent_rotator.get_random_user_agent()
+    # user_agent_rotator = UserAgent()
+    # return user_agent_rotator.get_random_user_agent()
+
+#     curl 'https://deepseek.rkui.cn/api/chat' \
+#   -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36' \  
+#返回上面的useragent
+    user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    return user_agent
 
 
 async def call_api(payload, is_stream=False):
@@ -36,15 +42,40 @@ async def call_api(payload, is_stream=False):
             # 生成随机User-Agent
             user_agent = generate_random_user_agent()
             
+            # 打印payload的model
+            print(f"payload的model: {payload['model']}")
             # 发送请求到目标API
             response = await client.post(
                 "https://deepseek.rkui.cn/api/chat",
                 json=payload,
                 timeout=60.0,
                 headers={
-                    "Accept": "text/event-stream",
-                    "Cache-Control": "no-cache",
-                    "Connection": "keep-alive",
+                    #   -H 'accept: */*' \
+                    #   -H 'accept-language: zh-CN,zh;q=0.9,en;q=0.8' \
+                    #   -H 'content-type: application/json' \
+                    #   -H 'origin: https://deepseek.rkui.cn' \
+                    #   -H 'priority: u=1, i' \
+                    #   -H 'referer: https://deepseek.rkui.cn/' \
+                    #   -H 'sec-ch-ua: "Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"' \
+                    #   -H 'sec-ch-ua-mobile: ?0' \
+                    #   -H 'sec-ch-ua-platform: "Windows"' \
+                    #   -H 'sec-fetch-dest: empty' \
+                    #   -H 'sec-fetch-mode: cors' \
+                    #   -H 'sec-fetch-site: same-origin' \
+                    # "referrerPolicy": "strict-origin-when-cross-origin",
+                    "Accept": "*/*",
+                    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                    "Content-Type": "application/json",
+                    "Origin": "https://deepseek.rkui.cn",
+                    "Priority": "u=1, i",
+                    "Referer": "https://deepseek.rkui.cn/",
+                    "Sec-Ch-Ua": '"Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"',
+                    "Sec-Ch-Ua-Mobile": "?0",
+                    "Sec-Ch-Ua-Platform": '"Windows"',
+                    "Sec-Fetch-Dest": "empty",
+                    "Sec-Fetch-Mode": "cors",
+                    "Sec-Fetch-Site": "same-origin",
+                    "Referrer-Policy": "strict-origin-when-cross-origin",
                     "User-Agent": user_agent
                 }
             )
